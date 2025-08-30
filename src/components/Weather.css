@@ -111,3 +111,18 @@
     width: 26px;
     margin-top: 10px;
 }
+
+.search-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.search-button img {
+  width: 24px;
+  height: 24px;
+  padding: 13px;
+  border-radius: 50%;
+  background-color: white;
+}
