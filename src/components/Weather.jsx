@@ -25,28 +25,26 @@ const Weather = () => {
     search(city);
   }, []);
 
-  const handleSearch = () => {
-    if (city.trim() !== "") search(city);
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      handleSearch();
+  const handleSearch = (event) => {
+    event.preventDefault(); // Prevent page reload on form submission
+    if (city.trim() !== "") {
+      search(city);
     }
   };
 
   return (
     <div className="weather">
-      <div className="search-bar">
+      <form className="search-bar" onSubmit={handleSearch}>
         <input
           type="text"
           placeholder="Search"
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          onKeyDown={handleKeyPress}
         />
-        <img src={search_icon} alt="search" onClick={handleSearch} />
-      </div>
+        <button type="submit" className="search-button">
+          <img src={search_icon} alt="search" />
+        </button>
+      </form>
 
       {weatherData && (
         <>
