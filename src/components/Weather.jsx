@@ -29,6 +29,12 @@ const Weather = () => {
     if (city.trim() !== "") search(city);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="weather">
       <div className="search-bar">
@@ -37,6 +43,7 @@ const Weather = () => {
           placeholder="Search"
           value={city}
           onChange={(e) => setCity(e.target.value)}
+          onKeyDown={handleKeyPress}
         />
         <img src={search_icon} alt="search" onClick={handleSearch} />
       </div>
